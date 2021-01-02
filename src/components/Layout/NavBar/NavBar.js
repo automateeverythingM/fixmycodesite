@@ -1,11 +1,9 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { css, jsx } from "@emotion/react";
 import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { SVG } from "../../../features/SVG";
 import { ReactComponent as Logo } from "../../../img/logo.svg";
+import LoginRegister from "../UserOptionDropDown/LoginRegister";
 const NavBar = () => {
   return (
     <Navbar bg="dark" expand="lg" variant="dark">
@@ -23,6 +21,7 @@ const NavBar = () => {
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>
+      <LoginRegister />
     </Navbar>
   );
 };
