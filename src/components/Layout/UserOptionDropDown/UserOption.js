@@ -3,6 +3,7 @@
 import { css, jsx, useTheme } from "@emotion/react";
 import React from "react";
 import Avatar from "../../UI/Avatar/Avatar";
+import CustomDropdownItem from "./CustomDropdownItem";
 import { CustomNavDropdown } from "./CustomNavDropdown";
 import NotifyIcon from "./NotifyIcon";
 
@@ -14,9 +15,9 @@ const UserOption = () => {
         align-items: center;
       `}
     >
-      <CustomNavDropdown
-        title={<NotifyIcon size="1.5rem" />}
-      ></CustomNavDropdown>
+      <CustomNavDropdown title={<NotifyIcon size="1.5rem" />}>
+        <CustomDropdownItem></CustomDropdownItem>
+      </CustomNavDropdown>
 
       <CustomNavDropdown
         title={
