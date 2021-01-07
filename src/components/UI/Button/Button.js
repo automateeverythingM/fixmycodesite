@@ -61,13 +61,7 @@ function Button({
   `;
 
   return (
-    <TBaseButton
-      loading={loading}
-      color={color}
-      {...rest}
-      icon={Icon}
-      iconPosition={iconPosition}
-    >
+    <TBaseButton loading={loading} color={color} {...rest} icon={Icon}>
       {Icon && <Icon css={iconPositionSet} />}
       {thisRender}
     </TBaseButton>

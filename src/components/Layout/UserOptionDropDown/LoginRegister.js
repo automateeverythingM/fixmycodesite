@@ -10,7 +10,7 @@ const LoginRegister = () => {
       <ButtonColor
         background={colors.secondary}
         color={colors.light}
-        lighten
+        lighten="true"
         as={Link}
         to="/login"
         className="mr-2 text-decoration-none"
@@ -21,7 +21,7 @@ const LoginRegister = () => {
         className="text-decoration-none"
         background={colors.danger}
         color={colors.light}
-        lighten
+        lighten="true"
         as={Link}
         to="/register"
       >
