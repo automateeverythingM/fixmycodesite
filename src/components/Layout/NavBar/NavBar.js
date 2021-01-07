@@ -1,10 +1,18 @@
 import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { SVG } from "../../../features/SVG";
 import { ReactComponent as Logo } from "../../../img/logo.svg";
 import LoginRegister from "../UserOptionDropDown/LoginRegister";
 import UserOption from "../UserOptionDropDown/UserOption";
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { css, jsx } from "@emotion/react";
+const hoverNavLink = css`
+  &:hover {
+    color: #fff !important;
+  }
+`;
 const NavBar = ({ isUserAuth = true }) => {
   const renderUserOrLogin = isUserAuth ? <UserOption /> : <LoginRegister />;
 
@@ -16,10 +24,10 @@ const NavBar = ({ isUserAuth = true }) => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="navbar-basic">
         <Nav className="ml-3">
-          <Nav.Link as={Link} to="/">
+          <Nav.Link as={NavLink} to="/" css={hoverNavLink} exact>
             HOME
           </Nav.Link>
-          <Nav.Link as={Link} to="/explore">
+          <Nav.Link as={NavLink} to="/explore" css={hoverNavLink} exact>
             EXPLORE
           </Nav.Link>
         </Nav>

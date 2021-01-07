@@ -11,7 +11,7 @@ const NotifyIcon = ({
   notificationNumber = 2,
 }) => {
   return (
-    <span className="text-white position-relative">
+    <span className=" text-white position-relative">
       {notificationNumber && (
         <Badge
           css={css`

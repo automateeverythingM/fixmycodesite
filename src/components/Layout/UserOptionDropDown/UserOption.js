@@ -1,10 +1,11 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { css, jsx } from "@emotion/react";
+import { css, jsx, useTheme } from "@emotion/react";
 import React from "react";
-import { Dropdown, NavDropdown } from "react-bootstrap";
-import { FiMail } from "react-icons/fi";
+import Avatar from "../../UI/Avatar/Avatar";
+import { CustomNavDropdown } from "./CustomNavDropdown";
 import NotifyIcon from "./NotifyIcon";
+
 const UserOption = () => {
   return (
     <div
@@ -13,27 +14,24 @@ const UserOption = () => {
         align-items: center;
       `}
     >
-      <NavDropdown
-        title={<NotifyIcon size="2rem" />}
-        css={css`
-          .dropdown-toggle::after {
-            display: none;
-          }
-        `}
-        id="user-menu"
-        className="text-white"
-        alignRight
-      >
-        <Dropdown.Item></Dropdown.Item>
-      </NavDropdown>
+      <CustomNavDropdown
+        title={<NotifyIcon size="1.5rem" />}
+      ></CustomNavDropdown>
 
-      <NavDropdown
+      <CustomNavDropdown
         title={
-          <img
-            className="rounded-circle"
+          <Avatar
             src="https://picsum.photos/40"
+            size="1.5rem"
             alt="avatar"
+            className="border"
           />
+        }
+      ></CustomNavDropdown>
+
+      {/* <NavDropdown
+        title={
+          <Avatar src="https://picsum.photos/40" size="1.5rem" alt="avatar" />
         }
         css={css`
           .dropdown-toggle::after {
@@ -45,7 +43,7 @@ const UserOption = () => {
         alignRight
       >
         <Dropdown.Item></Dropdown.Item>
-      </NavDropdown>
+      </NavDropdown> */}
     </div>
   );
 };
