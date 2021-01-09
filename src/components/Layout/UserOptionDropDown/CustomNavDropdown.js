@@ -20,7 +20,7 @@ export const CustomNavDropdown = ({ children, title, ...rest }) => {
         }
       `}
       id="user-menu"
-      className="bg-dark"
+      className="bg-dark px-1"
       alignRight
     >
       {children}

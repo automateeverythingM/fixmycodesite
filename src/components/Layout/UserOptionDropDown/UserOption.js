@@ -2,9 +2,10 @@
 /** @jsx jsx */
 import { css, jsx, useTheme } from "@emotion/react";
 import React from "react";
-import Avatar from "../../UI/Avatar/Avatar";
+import FixedSizeImage from "../../UI/Avatar/FixedSizeImage";
 import CustomDropdownItem from "./CustomDropdownItem";
 import { CustomNavDropdown } from "./CustomNavDropdown";
+import NotificationUI from "./NotificationUI";
 import NotifyIcon from "./NotifyIcon";
 
 const UserOption = () => {
@@ -16,16 +17,42 @@ const UserOption = () => {
       `}
     >
       <CustomNavDropdown title={<NotifyIcon size="1.5rem" />}>
-        <CustomDropdownItem></CustomDropdownItem>
+        <NotificationUI
+          imgSrc="https://picsum.photos/60"
+          title="Code Fix"
+          message="Your response was accepted and you got reword 2 euro"
+          time="2 hour ago"
+          isNew
+        />
+        <NotificationUI
+          imgSrc="https://picsum.photos/50"
+          title="Comment of code"
+          message="I missed explanation of saving file"
+          time="5 days ago"
+          isNew
+        />
+        <NotificationUI
+          imgSrc="https://picsum.photos/65"
+          title="Setting policy changes"
+          message="Please update you agreement"
+          time="2 weeks ago"
+        />
+        <NotificationUI
+          imgSrc="https://picsum.photos/70"
+          title="Friend request"
+          message="Marko has sent you a friend request"
+          time="long time ago"
+        />
       </CustomNavDropdown>
 
       <CustomNavDropdown
         title={
-          <Avatar
+          <FixedSizeImage
             src="https://picsum.photos/40"
             size="1.5rem"
             alt="avatar"
             className="border"
+            rounded
           />
         }
       ></CustomNavDropdown>

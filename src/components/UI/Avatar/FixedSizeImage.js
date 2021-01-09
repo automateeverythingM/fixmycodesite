@@ -3,7 +3,7 @@
 import { css, jsx } from "@emotion/react";
 import React from "react";
 
-const Avatar = ({ src, size, alt, rounded = true, ...rest }) => {
+const FixedSizeImage = ({ src, size, alt, rounded, ...rest }) => {
   return (
     <img
       src={src}
@@ -20,4 +20,4 @@ const Avatar = ({ src, size, alt, rounded = true, ...rest }) => {
   );
 };
 
-export default Avatar;
+export default FixedSizeImage;
