@@ -5,8 +5,8 @@ import React from "react";
 import { Badge } from "react-bootstrap";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import FixedSizeImage from "../../UI/Avatar/FixedSizeImage";
-import DropdownItemStyled from "./DropdownItemStyled";
+import FixedSizeImage from "../../../UI/Avatar/FixedSizeImage";
+import DropdownItemStyled from "../DropdownItemStyled";
 
 const dropdownItemCss = css`
   display: flex;

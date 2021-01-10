@@ -2,8 +2,7 @@ import React from "react";
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { css, jsx, useTheme } from "@emotion/react";
-import { NavDropdown, Dropdown } from "react-bootstrap";
-import NotifyIcon from "./NotifyIcon";
+import { NavDropdown } from "react-bootstrap";
 
 export const CustomNavDropdown = ({ children, title, ...rest }) => {
   const { colors } = useTheme();

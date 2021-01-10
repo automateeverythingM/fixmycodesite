@@ -4,7 +4,7 @@ import { css, jsx } from "@emotion/react";
 import React from "react";
 import DropdownItem from "react-bootstrap/esm/DropdownItem";
 import { Link } from "react-router-dom";
-import DropdownItemStyled from "./DropdownItemStyled";
+import DropdownItemStyled from "../DropdownItemStyled";
 
 const dropdownItemCss = css`
   display: flex;
