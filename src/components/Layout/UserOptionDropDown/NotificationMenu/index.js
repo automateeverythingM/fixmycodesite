@@ -1,15 +1,21 @@
 import React from "react";
 import { CustomNavDropdown } from "../CustomNavDropdown";
-import NotificationUI from "./NotificationUI";
 import SeeAllNotify from "./SeeAllNotify";
 import notificationMock from "../../../../mocks/notification";
 import NotifyIcon from "./NotifyIcon";
-
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { css, jsx } from "@emotion/react";
+import NotificationItem from "./NotificationItem";
 export const NotificationsDropdown = () => {
   return (
-    <CustomNavDropdown title={<NotifyIcon size="1.5rem" />}>
+    <CustomNavDropdown
+      id="notify-menu"
+      className="p-0"
+      title={<NotifyIcon size="1.5rem" />}
+    >
       {notificationMock.map((n) => (
-        <NotificationUI
+        <NotificationItem
           key={n.id}
           imgSrc={n.imgSrc}
           title={n.title}

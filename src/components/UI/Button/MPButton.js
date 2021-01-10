@@ -34,7 +34,7 @@ export const BaseButton = styled.button`
   color: ${(props) => transparentize(0.15, props.color || baseColor)};
   background: ${(props) => props.background || baseBackgroundColor};
   margin: 0 0.25em 0 0;
-  padding: 0.78571429em 1.5em 0.78571429em;
+  padding: 0.68571429em 1em 0.68571429em;
   text-transform: none;
   font-size: ${(props) => props.size || "1rem"};
   text-shadow: none;

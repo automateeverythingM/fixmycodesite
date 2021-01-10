@@ -14,13 +14,16 @@ export const CustomNavDropdown = ({ children, title, ...rest }) => {
         & > div {
           background: ${colors.dark};
         }
+        & > a {
+          padding: 0 0.6rem;
+        }
         .dropdown-toggle::after {
           display: none;
         }
       `}
-      id="user-menu"
       className="bg-dark px-1"
       alignRight
+      {...rest}
     >
       {children}
     </NavDropdown>

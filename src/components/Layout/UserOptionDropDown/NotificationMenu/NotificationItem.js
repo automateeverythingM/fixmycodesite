@@ -7,6 +7,7 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import FixedSizeImage from "../../../UI/Avatar/FixedSizeImage";
 import DropdownItemStyled from "../DropdownItemStyled";
+import { truncate } from "loadsh";
 
 const dropdownItemCss = css`
   display: flex;
@@ -21,18 +22,15 @@ const dropdownItemCss = css`
   }
 `;
 
-const NotificationUI = ({ title, message, isNew, time, imgSrc, jumpTo }) => {
+const NotificationItem = ({ title, message, isNew, time, imgSrc, jumpTo }) => {
+  const truncateMessage = truncate(message, { length: "70" });
+
   return (
-    <DropdownItemStyled as={Link}>
+    <DropdownItemStyled size="0.8rem" as={Link}>
       <div className="d-flex text-white w-100 align-items-center">
         <FixedSizeImage src={imgSrc} size="40px" />
         <div className="ml-2 w-100">
-          <div
-            className="text-warning font-weight-bold"
-            css={css`
-              font-size: 0.8rem;
-            `}
-          >
+          <div className="text-warning font-weight-bold">
             {title}
             {isNew && (
               <Badge
@@ -46,7 +44,7 @@ const NotificationUI = ({ title, message, isNew, time, imgSrc, jumpTo }) => {
               </Badge>
             )}
           </div>
-          <div>{message}</div>
+          <div>{truncateMessage}</div>
           <div className="text-white-50 d-flex align-items-center">
             <AiOutlineClockCircle className="mr-1" /> {time}
           </div>
@@ -56,4 +54,4 @@ const NotificationUI = ({ title, message, isNew, time, imgSrc, jumpTo }) => {
   );
 };
 
-export default NotificationUI;
+export default NotificationItem;

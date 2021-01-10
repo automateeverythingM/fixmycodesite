@@ -10,14 +10,29 @@ const dropdownItemCss = css`
   width: 350px;
   white-space: normal;
   padding: 0.5rem 0.5rem;
-  font-size: 0.7rem;
+  font-size: ${(props) => props.size || "0.7rem"};
   &:hover {
     background: #54595f;
   }
 `;
-const DropdownItemStyled = ({ children, ...rest }) => {
+
+const DropdownItemStyled = ({ children, size, ...rest }) => {
   return (
-    <DropdownItem css={dropdownItemCss} {...rest}>
+    <DropdownItem
+      css={css`
+        display: flex;
+        align-items: center;
+        max-width: 350px;
+        width: 350px;
+        white-space: normal;
+        padding: 0.5rem 0.5rem;
+        font-size: ${size || "0.7rem"};
+        &:hover {
+          background: #54595f;
+        }
+      `}
+      {...rest}
+    >
       {children}
     </DropdownItem>
   );

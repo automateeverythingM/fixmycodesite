@@ -4,10 +4,14 @@ import React from "react";
 import { css, jsx } from "@emotion/react";
 import { CustomNavDropdown } from "../CustomNavDropdown";
 import FixedSizeImage from "../../../UI/Avatar/FixedSizeImage";
+import UserMenuItem from "./UserMenuItem";
+import { FaUser } from "react-icons/fa";
+import mockoptions from "../../../../mocks/usermenuoptions";
 
 export const UserDropdown = () => {
   return (
     <CustomNavDropdown
+      id="user-menu"
       title={
         <FixedSizeImage
           src="https://picsum.photos/40"
@@ -17,6 +21,19 @@ export const UserDropdown = () => {
           rounded
         />
       }
-    ></CustomNavDropdown>
+      css={css`
+        padding: 0;
+      `}
+    >
+      {mockoptions.map((item) => (
+        <UserMenuItem
+          className="font-weight-bold text-white"
+          title={item.title}
+          key={item.id}
+          icon={item.icon}
+          to={item.to}
+        />
+      ))}
+    </CustomNavDropdown>
   );
 };
