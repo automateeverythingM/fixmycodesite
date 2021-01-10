@@ -17,7 +17,14 @@ const NavBar = ({ isUserAuth = true }) => {
   const renderUserOrLogin = isUserAuth ? <UserOption /> : <LoginRegister />;
 
   return (
-    <Navbar bg="dark" expand="md" variant="dark">
+    <Navbar
+      bg="dark"
+      expand="md"
+      variant="dark"
+      css={css`
+        box-shadow: 0 4px 2px -2px black;
+      `}
+    >
       <Container>
         <Navbar.Brand className="font-weight-bold text-white" as={Link} to="/">
           <SVG svg={Logo} size="2rem" /> FixMyCode

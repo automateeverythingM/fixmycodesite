@@ -3,9 +3,10 @@
 import { css, jsx } from "@emotion/react";
 import React from "react";
 import { Badge } from "react-bootstrap";
-import DropdownItem from "react-bootstrap/esm/DropdownItem";
 import { AiOutlineClockCircle } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import FixedSizeImage from "../../UI/Avatar/FixedSizeImage";
+import DropdownItemStyled from "./DropdownItemStyled";
 
 const dropdownItemCss = css`
   display: flex;
@@ -20,9 +21,9 @@ const dropdownItemCss = css`
   }
 `;
 
-const NotificationUI = ({ title, message, isNew, time, imgSrc }) => {
+const NotificationUI = ({ title, message, isNew, time, imgSrc, jumpTo }) => {
   return (
-    <DropdownItem css={dropdownItemCss}>
+    <DropdownItemStyled as={Link}>
       <div className="d-flex text-white w-100 align-items-center">
         <FixedSizeImage src={imgSrc} size="40px" />
         <div className="ml-2 w-100">
@@ -51,7 +52,7 @@ const NotificationUI = ({ title, message, isNew, time, imgSrc }) => {
           </div>
         </div>
       </div>
-    </DropdownItem>
+    </DropdownItemStyled>
   );
 };
 
