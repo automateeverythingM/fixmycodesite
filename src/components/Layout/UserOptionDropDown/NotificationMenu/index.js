@@ -1,11 +1,7 @@
-import React from "react";
 import { CustomNavDropdown } from "../CustomNavDropdown";
 import SeeAllNotify from "./SeeAllNotify";
 import notificationMock from "../../../../mocks/notification";
 import NotifyIcon from "./NotifyIcon";
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { css, jsx } from "@emotion/react";
 import NotificationItem from "./NotificationItem";
 export const NotificationsDropdown = () => {
   return (

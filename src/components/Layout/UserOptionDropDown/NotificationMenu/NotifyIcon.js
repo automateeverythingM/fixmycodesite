@@ -1,7 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react";
-import React from "react";
 import { Badge } from "react-bootstrap";
 import { FaBell } from "react-icons/fa";
 

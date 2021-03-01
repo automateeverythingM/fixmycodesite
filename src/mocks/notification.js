@@ -1,4 +1,4 @@
-export default [
+const notif = [
   {
     id: 1,
     imgSrc: "https://picsum.photos/50",
@@ -32,3 +32,5 @@ export default [
     isNew: false,
   },
 ];
+
+export default notif;

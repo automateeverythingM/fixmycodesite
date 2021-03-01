@@ -1,12 +1,10 @@
-import React from "react";
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react";
 import { CustomNavDropdown } from "../CustomNavDropdown";
 import FixedSizeImage from "../../../UI/Avatar/FixedSizeImage";
 import UserMenuItem from "./UserMenuItem";
-import { FaUser } from "react-icons/fa";
-import mockoptions from "../../../../mocks/usermenuoptions";
+import mockOptions from "../../../../mocks/usermenuoptions";
 
 export const UserDropdown = () => {
   return (
@@ -25,7 +23,7 @@ export const UserDropdown = () => {
         padding: 0;
       `}
     >
-      {mockoptions.map((item) => (
+      {mockOptions.map((item) => (
         <UserMenuItem
           className="font-weight-bold text-white"
           title={item.title}

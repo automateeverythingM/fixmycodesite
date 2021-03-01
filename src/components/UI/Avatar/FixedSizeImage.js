@@ -1,7 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react";
-import React from "react";
 
 const FixedSizeImage = ({ src, size, alt, rounded, ...rest }) => {
   return (

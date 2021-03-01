@@ -1,4 +1,3 @@
-import React from "react";
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { css, jsx, keyframes } from "@emotion/react";
@@ -21,14 +20,14 @@ const rotate = keyframes`
 `;
 
 const rotate_step = css`
-    animation: ${rotate} 1s infinite steps(8);
+  animation: ${rotate} 1s infinite steps(8);
 `;
 const rotate_stepSmall = css`
-    animation: ${rotate} 2s infinite linear;
+  animation: ${rotate} 2s infinite linear;
 `;
 
 function RotateSpinner({ component: Component, ...rest }) {
-    return <Component css={rotate_stepSmall} />;
+  return <Component css={rotate_stepSmall} />;
 }
 
 export default RotateSpinner;

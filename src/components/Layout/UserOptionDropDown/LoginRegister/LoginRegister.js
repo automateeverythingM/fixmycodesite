@@ -6,7 +6,7 @@ import ButtonColor from "../../../UI/Button/ButtonColor";
 const LoginRegister = () => {
   const { colors } = useTheme();
   return (
-    <div className="d-inline-block">
+    <div className="d-inline-flex align-items-center">
       <ButtonColor
         background={colors.secondary}
         color={colors.light}
