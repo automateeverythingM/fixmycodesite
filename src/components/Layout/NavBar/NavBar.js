@@ -1,5 +1,6 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "@reach/router";
+import NavLink from "./NavLink";
 import { SVG } from "../../../features/SVG";
 import { ReactComponent as Logo } from "../../../img/logo.svg";
 import { UserOption } from "../UserOptionDropDown";
@@ -31,12 +32,12 @@ const NavBar = ({ isUserAuth = true }) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="navbar-basic">
           <Nav className="ml-3">
-            <Nav.Link as={NavLink} to="/" css={hoverNavLink} exact>
+            <NavLink as={Link} to="/" css={hoverNavLink}>
               HOME
-            </Nav.Link>
-            <Nav.Link as={NavLink} to="/explore" css={hoverNavLink} exact>
+            </NavLink>
+            <NavLink as={Link} to="/explore" css={hoverNavLink}>
               EXPLORE
-            </Nav.Link>
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
         {renderUserOrLogin}

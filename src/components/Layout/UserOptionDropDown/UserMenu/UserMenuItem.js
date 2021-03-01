@@ -1,7 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react";
-import { Link } from "react-router-dom";
+import { Link } from "@reach/router";
 import DropdownItemStyled from "../DropdownItemStyled";
 
 const UserMenuItem = ({ icon: Icon, title, ...rest }) => {

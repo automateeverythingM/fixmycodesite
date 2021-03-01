@@ -1,6 +1,8 @@
 import { css, Global } from "@emotion/react";
 import React from "react";
-import NavBar from "./components/Layout/NavBar/NavBar";
+import Layout from "./components/Layout";
+import { Router } from "@reach/router";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
@@ -16,7 +18,11 @@ function App() {
           }
         `}
       />
-      <NavBar />
+      <Router>
+        <Layout path="/">
+          <HomePage path="/" />
+        </Layout>
+      </Router>
     </div>
   );
 }

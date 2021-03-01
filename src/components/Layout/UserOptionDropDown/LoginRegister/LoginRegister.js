@@ -1,6 +1,6 @@
 import { useTheme } from "@emotion/react";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@reach/router";
 import ButtonColor from "../../../UI/Button/ButtonColor";
 
 const LoginRegister = () => {

@@ -11,6 +11,8 @@ export const CustomNavDropdown = ({ children, title, ...rest }) => {
       title={title}
       css={css`
         & > div {
+          top: 130%;
+          right: 30%;
           background: ${colors.dark};
         }
         & > a {

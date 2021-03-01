@@ -15,7 +15,13 @@ export const UserDropdown = () => {
           src="https://picsum.photos/40"
           size="1.5rem"
           alt="avatar"
-          className="border"
+          className=""
+          css={css`
+            border: 2px solid #ffffff99;
+            &:hover {
+              border-color: white;
+            }
+          `}
           rounded
         />
       }
