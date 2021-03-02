@@ -3,14 +3,14 @@
 import { css, jsx } from "@emotion/react";
 import styled from "@emotion/styled";
 import { Col, Container, Jumbotron } from "react-bootstrap";
-import codeIllustration from "../../../img/codeilust.svg";
+import codeIllustration from "../../../img/codeilustwithborder.svg";
 
 const CustomContainer = styled(Container)`
   border-radius: 0;
   background-image: url(${codeIllustration});
   background-repeat: no-repeat;
   background-position: right center;
-  background-size: 400px 400px;
+  background-size: 500px 500px;
   height: 30rem;
 
   p {

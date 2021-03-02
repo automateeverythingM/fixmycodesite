@@ -20,7 +20,12 @@ const Circle = styled.span`
 
 function CodeHighLighter({ code, language, ...rest }) {
   return (
-    <div className="position-relative overflow-hidden rounded">
+    <div
+      className="position-relative h-100 overflow-hidden"
+      css={css`
+        border-radius: 1rem;
+      `}
+    >
       <div
         css={css`
           height: 30px;
@@ -52,7 +57,7 @@ function CodeHighLighter({ code, language, ...rest }) {
         </button>
       </CopyToClipboard>
       <SyntaxHighlighter
-        customStyle={{ margin: "0", marginBottom: "0" }}
+        customStyle={{ margin: "0", height: "100%" }}
         language={language}
         style={draculaStyle}
         {...rest}
