@@ -3,7 +3,6 @@
 import { css, jsx } from "@emotion/react";
 import { Badge } from "react-bootstrap";
 import { AiOutlineClockCircle } from "react-icons/ai";
-import { Link } from "@reach/router";
 import FixedSizeImage from "../../../UI/Avatar/FixedSizeImage";
 import DropdownItemStyled from "../DropdownItemStyled";
 import { truncate } from "loadsh";

@@ -3,7 +3,6 @@ import SeeAllNotify from "./SeeAllNotify";
 import notificationMock from "../../../../mocks/notification";
 import NotifyIcon from "./NotifyIcon";
 import NotificationItem from "./NotificationItem";
-import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 export const NotificationsDropdown = () => {
   console.log(
     "🚀 ~ file: index.js ~ line 4 ~ notificationMock",
