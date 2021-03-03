@@ -45,7 +45,7 @@ function CodeHighLighter({ code, language, ...rest }) {
             background: transparent;
             position: absolute;
             right: 5px;
-            top: 25px;
+            top: 35px;
             border: none;
             color: #ffffff88;
             &:hover {

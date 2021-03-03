@@ -1,12 +1,13 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { css, jsx } from "@emotion/react";
+import { css, jsx, keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import { Container, Jumbotron } from "react-bootstrap";
 import CodeHighLighter from "../../../components/codeHighlighter";
 import money from "../../../img/money.svg";
 import FixedSizeImage from "../../../components/UI/Avatar/FixedSizeImage";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const code = `const notifyTrackingObservers = (
     eventType: TrackedEvents | string,
@@ -31,13 +32,18 @@ const code = `const notifyTrackingObservers = (
 const BackgroundPlate = styled.div`
   grid-column: 1 / span 6;
   grid-row: 2 / 3;
-  background: #b3964d;
+  background: #b2675e;
   width: 90%;
   margin: 0 auto;
   height: 100%;
   border-radius: 5rem;
 `;
 // transform: rotate(-3deg);
+
+const variants = {
+  hide: { opacity: 0.8 },
+  show: { opacity: 0 },
+};
 
 function ArrowPointing() {
   const [showCode, setShowCode] = useState(false);
@@ -69,7 +75,7 @@ function ArrowPointing() {
           className="text-light py-2"
         >
           <h3 className="display-5">Write you question</h3>
-          <p className="">
+          <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
             quidem reiciendis in et, provident soluta modi reprehenderit illo
             consequuntur dicta. Officiis quos beatae quibusdam ratione
@@ -94,7 +100,9 @@ function ArrowPointing() {
             language="javascript"
           />
           {!hideOpacity && (
-            <div
+            <motion.div
+              animate={showCode ? "show" : "hide"}
+              variants={variants}
               css={css`
                 position: absolute;
                 top: 0;
@@ -102,22 +110,21 @@ function ArrowPointing() {
                 right: 0;
                 bottom: 0;
                 background: #000000;
-                transition: all 0.5s ease;
-                opacity: ${showCode ? 0 : 0.8};
                 border-radius: 1rem;
               `}
-              onTransitionEnd={() => {
+              onAnimationComplete={() => {
                 if (showCode) {
                   setHideOpacity(true);
                 }
               }}
-            ></div>
+            ></motion.div>
           )}
 
           {!showCode && (
-            <div
+            <motion.div
+              animate={{ rotate: !showCode && -180 }}
+              whileHover={{ rotate: 180 }}
               css={css`
-                ${showCode ? "display: none" : ""}
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -126,17 +133,13 @@ function ArrowPointing() {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                transition: transform 0.5s ease;
                 cursor: pointer;
                 user-select: none;
-                &:hover {
-                  transform: rotate(360deg);
-                }
               `}
               onClick={() => setShowCode(true)}
             >
               <FixedSizeImage size="100px" src={money} alt="money sign" />
-            </div>
+            </motion.div>
           )}
         </div>
       </Container>
