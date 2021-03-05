@@ -2,7 +2,7 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react";
 import styled from "@emotion/styled";
-import { Container, Jumbotron } from "react-bootstrap";
+import { Button, Col, Container, Jumbotron, Row } from "react-bootstrap";
 import CodeHighLighter from "../../../components/codeHighlighter";
 import money from "../../../img/money.svg";
 import FixedSizeImage from "../../../components/UI/Avatar/FixedSizeImage";
@@ -30,11 +30,7 @@ const code = `const notifyTrackingObservers = (
 `;
 
 const BackgroundPlate = styled.div`
-  grid-column: 1 / span 6;
-  grid-row: 2 / 3;
   background: #b2675e;
-  width: 90%;
-  margin: 0 auto;
   height: 100%;
   border-radius: 5rem;
 `;
@@ -52,101 +48,119 @@ function ArrowPointing() {
   const [hideOpacity, setHideOpacity] = useState(false);
   return (
     <Jumbotron className="bg-light mb-0">
-      <Container
-        css={css`
-          display: grid;
-          padding: 2rem 1rem;
-          align-content: stretch;
-          margin: 0 auto;
-          grid-template-columns: 5% 5% 1fr 1fr 5% 5%;
-          grid-template-rows: 10% 80% 10%;
-          @media (min-width: 578px) {
-            padding: 4rem 2rem;
-          }
-        `}
-      >
-        <BackgroundPlate />
-        <div
-          css={css`
-            grid-row: 2/3;
-            grid-column: 3;
-            align-self: center;
-            z-index: 2;
-          `}
-          className="text-light py-2"
-        >
-          <h3 className="display-5">Write you question</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-            quidem reiciendis in et, provident soluta modi reprehenderit illo
-            consequuntur dicta. Officiis quos beatae quibusdam ratione
-            dignissimos possimus, perspiciatis laboriosam dicta.
-          </p>
-        </div>
-        <div
-          css={css`
-            position: relative;
-            grid-column: 4;
-            grid-row: 1 / 4;
-            border-radius: 1rem;
-          `}
-          onMouseLeave={() => {
-            setShowCode(false);
-            setHideOpacity(false);
-          }}
-        >
-          <CodeHighLighter
-            customStyle={{ marginTop: "0", height: "100%" }}
-            code={code}
-            language="javascript"
-          />
-          {!hideOpacity && (
-            <motion.div
-              animate={showCode ? "show" : "hide"}
-              variants={variants}
-              css={css`
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: #000000;
-                border-radius: 1rem;
-              `}
-              onAnimationComplete={() => {
-                if (showCode) {
-                  setHideOpacity(true);
-                }
-              }}
-            ></motion.div>
-          )}
-
-          {!showCode && (
-            <motion.div
-              whileHover={{ rotate: 180 }}
-              css={css`
-                position: absolute;
-                top: -2px;
-                left: -2px;
-                right: -2px;
-                bottom: -2px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                user-select: none;
-              `}
-              onClick={() => setShowCode(true)}
+      <Container>
+        <BackgroundPlate>
+          <Row>
+            <Col
+              md={{ offset: 1, span: 4 }}
+              lg={{ offset: 1, span: 5 }}
+              className="d-flex flex-column justify-content-center pt-3 py-4"
             >
-              <AnimFixedImage
-                animate={{ rotate: !showCode && -180 }}
-                size="100px"
-                src={money}
-                alt="money sign"
-              />
-            </motion.div>
-          )}
-        </div>
+              <div
+                css={css`
+                  height: 80%;
+
+                  @media (max-width: 991.98px) {
+                    padding-right: 1rem;
+                    p {
+                      font-size: 12px;
+                    }
+                  }
+
+                  @media (max-width: 767.98px) {
+                    padding-right: 5rem;
+                    padding-left: 5rem;
+                  }
+                `}
+                className="text-light "
+              >
+                <h3 className="display-5">Write you question</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Adipisci quidem reiciendis in et, provident soluta modi
+                  reprehenderit illo consequuntur dicta. Officiis quos beatae
+                  quibusdam ratione dignissimos possimus, perspiciatis
+                  laboriosam dicta.
+                </p>
+                <div className="text-right mt-4">
+                  <Button variant="warning">Place code</Button>
+                </div>
+              </div>
+            </Col>
+
+            <Col
+              md={{ span: 6 }}
+              lg={5}
+              className="d-flex align-items-center justify-content-center"
+            >
+              <div
+                css={css`
+                  position: relative;
+                  border-radius: 1rem;
+                  height: 80%;
+                  width: 90%;
+                  overflow: hidden;
+                `}
+                onMouseLeave={() => {
+                  setShowCode(false);
+                  setHideOpacity(false);
+                }}
+              >
+                <CodeHighLighter
+                  customStyle={{ marginTop: "0" }}
+                  code={code}
+                  language="javascript"
+                />
+                {!hideOpacity && (
+                  <motion.div
+                    animate={showCode ? "show" : "hide"}
+                    variants={variants}
+                    css={css`
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      right: 0;
+                      bottom: 0;
+                      background: #000000;
+                      border-radius: 1rem;
+                    `}
+                    onAnimationComplete={() => {
+                      if (showCode) {
+                        setHideOpacity(true);
+                      }
+                    }}
+                  ></motion.div>
+                )}
+
+                {!showCode && (
+                  <motion.div
+                    whileHover={{ rotate: 180 }}
+                    css={css`
+                      position: absolute;
+                      top: -2px;
+                      left: -2px;
+                      right: -2px;
+                      bottom: -2px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      cursor: pointer;
+                      user-select: none;
+                    `}
+                    onClick={() => setShowCode(true)}
+                  >
+                    <AnimFixedImage
+                      animate={{ rotate: !showCode && -180 }}
+                      size="100px"
+                      src={money}
+                      alt="money sign"
+                    />
+                  </motion.div>
+                )}
+              </div>
+            </Col>
+          </Row>
+        </BackgroundPlate>
       </Container>
     </Jumbotron>
   );
