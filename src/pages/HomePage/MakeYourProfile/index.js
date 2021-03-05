@@ -16,7 +16,7 @@ function ProfileBanner() {
       <Container
         className="bg-primary p-5"
         css={css`
-          border-radius: 2rem;
+          border-radius: 2em;
         `}
       >
         <ProfileCard />

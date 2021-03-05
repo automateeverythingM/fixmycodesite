@@ -1,54 +1,50 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react";
-import styled from "@emotion/styled";
-import { Col, Container, Jumbotron } from "react-bootstrap";
+import { Col, Container, Jumbotron, Row } from "react-bootstrap";
+import FixedSizeImage from "../../../components/UI/Avatar/FixedSizeImage";
 import codeIllustration from "../../../img/codeilustwithborder.svg";
-
-const CustomContainer = styled(Container)`
-  border-radius: 0;
-  background-image: url(${codeIllustration});
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: 500px 500px;
-  height: 30rem;
-
-  p {
-    margin-bottom: 0;
-    font-size: 1rem;
-  }
-`;
 
 function LandingBanner() {
   return (
     <Jumbotron
       css={css`
         background: #be3232;
-        height: 100vh;
       `}
-      className="rounded-0 text-light mb-0 d-flex align-items-center"
+      className="rounded-0 text-light mb-0"
     >
-      <CustomContainer className="d-flex align-items-center">
-        <Col md={7}>
-          <h1
+      <Container>
+        <Row className="align-items-center">
+          <Col
+            md={7}
             css={css`
-              line-height: 1.2em;
+              @media (max-width: 765px) {
+                order: 1;
+              }
             `}
-            className="display-4"
           >
-            Price your code get help that money pays.
-          </h1>
-          <h4 className="display-6">
-            Let someone talk you trough your problem
-          </h4>
-          <p>Get more personal help for your particular problem</p>
-          <p>Or you teach and collect your money</p>
-        </Col>
-      </CustomContainer>
-
-      {/* <div>
-      <CodeHighLighter language="javascript" code={codes} showLineNumbers />
-    </div> */}
+            <h1>
+              Price your code.
+              <br /> Get help that money pays.
+            </h1>
+            <h3 className="font-weight-normal">
+              Let someone talk you trough your problem
+            </h3>
+            <ul
+              css={css`
+                list-style: none;
+                padding-inline-start: 0px;
+              `}
+            >
+              <li>Get more personal help for your particular problem</li>
+              <li>Or you teach and collect your money</li>
+            </ul>
+          </Col>
+          <Col md={5}>
+            <FixedSizeImage src={codeIllustration} />
+          </Col>
+        </Row>
+      </Container>
     </Jumbotron>
   );
 }

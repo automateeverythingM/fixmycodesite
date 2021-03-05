@@ -16,6 +16,18 @@ function App() {
               text-decoration: underline;
             }
           }
+
+          html {
+            @media (max-width: 767.98px) {
+              font-size: 12px;
+            }
+            @media (max-width: 575.98px) {
+              font-size: 10px;
+            }
+            h1 {
+              font-size: 3rem;
+            }
+          }
         `}
       />
       <Router>

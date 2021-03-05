@@ -55,10 +55,8 @@ function ArrowPointing() {
       <Container
         css={css`
           display: grid;
-          height: 100vh;
           padding: 2rem 1rem;
           align-content: stretch;
-          width: 80%;
           margin: 0 auto;
           grid-template-columns: 5% 5% 1fr 1fr 5% 5%;
           grid-template-rows: 10% 80% 10%;
