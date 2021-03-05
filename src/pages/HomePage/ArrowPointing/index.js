@@ -1,6 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { css, jsx, keyframes } from "@emotion/react";
+import { css, jsx } from "@emotion/react";
 import styled from "@emotion/styled";
 import { Container, Jumbotron } from "react-bootstrap";
 import CodeHighLighter from "../../../components/codeHighlighter";
@@ -45,14 +45,17 @@ const variants = {
   show: { opacity: 0 },
 };
 
+const AnimFixedImage = motion(FixedSizeImage);
+
 function ArrowPointing() {
   const [showCode, setShowCode] = useState(false);
   const [hideOpacity, setHideOpacity] = useState(false);
   return (
-    <Jumbotron className="bg-white">
+    <Jumbotron className="bg-light mb-0">
       <Container
         css={css`
           display: grid;
+          height: 100vh;
           padding: 2rem 1rem;
           align-content: stretch;
           width: 80%;
@@ -122,14 +125,13 @@ function ArrowPointing() {
 
           {!showCode && (
             <motion.div
-              animate={{ rotate: !showCode && -180 }}
               whileHover={{ rotate: 180 }}
               css={css`
                 position: absolute;
-                top: 0;
-                left: 0;
+                top: -2px;
+                left: -2px;
                 right: -2px;
-                bottom: 0;
+                bottom: -2px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -138,7 +140,12 @@ function ArrowPointing() {
               `}
               onClick={() => setShowCode(true)}
             >
-              <FixedSizeImage size="100px" src={money} alt="money sign" />
+              <AnimFixedImage
+                animate={{ rotate: !showCode && -180 }}
+                size="100px"
+                src={money}
+                alt="money sign"
+              />
             </motion.div>
           )}
         </div>

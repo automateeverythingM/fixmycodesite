@@ -24,8 +24,9 @@ function LandingBanner() {
     <Jumbotron
       css={css`
         background: #be3232;
+        height: 100vh;
       `}
-      className="rounded-0 text-light mb-0"
+      className="rounded-0 text-light mb-0 d-flex align-items-center"
     >
       <CustomContainer className="d-flex align-items-center">
         <Col md={7}>

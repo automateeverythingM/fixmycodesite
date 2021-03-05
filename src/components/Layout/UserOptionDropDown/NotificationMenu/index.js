@@ -4,10 +4,6 @@ import notificationMock from "../../../../mocks/notification";
 import NotifyIcon from "./NotifyIcon";
 import NotificationItem from "./NotificationItem";
 export const NotificationsDropdown = () => {
-  console.log(
-    "🚀 ~ file: index.js ~ line 4 ~ notificationMock",
-    notificationMock
-  );
   return (
     <CustomNavDropdown
       id="notify-menu"
