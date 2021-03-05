@@ -18,12 +18,17 @@ function ProfileCardWithComments() {
           border-bottom: 2px solid #131313;
           box-shadow: 0 2px 2px 0px #2c2c2c;
           z-index: 40;
+
+          @media (max-width: 768.98px) {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+          }
         `}
       >
         <Col md={4}>
-          <div>
+          <div className="d-flex flex-column justify-content-center align-items-center">
             <FixedSizeImage
-              size="200px"
+              size="150px"
               className="rounded-circle bg-light"
               src={user}
             />

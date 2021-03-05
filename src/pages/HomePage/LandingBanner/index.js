@@ -24,8 +24,8 @@ function LandingBanner() {
             `}
           >
             <h1>
-              Price your code.
-              <br /> Get help that money pays.
+              Lorem ipsum dolor.
+              <br /> Lorem it consectetur adipis.
             </h1>
             <h3 className="font-weight-normal">
               Let someone talk you trough your problem

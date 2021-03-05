@@ -47,8 +47,21 @@ function ArrowPointing() {
   const [showCode, setShowCode] = useState(false);
   const [hideOpacity, setHideOpacity] = useState(false);
   return (
-    <Jumbotron className="bg-light mb-0">
-      <Container>
+    <Jumbotron
+      css={css`
+        @media (max-width: 767.98px) {
+          background: #b2675e !important;
+        }
+      `}
+      className="bg-light mb-0"
+    >
+      <Container
+        css={css`
+          @media (max-width: 767.98px) {
+            background: #b2675e;
+          }
+        `}
+      >
         <BackgroundPlate>
           <Row>
             <Col

@@ -8,8 +8,7 @@ function ProfileBanner() {
   return (
     <Jumbotron
       css={css`
-        height: 100vh;
-        background: #c7e2f3;
+        background: #eeb4b2;
       `}
       className=" d-flex align-items-center"
     >
