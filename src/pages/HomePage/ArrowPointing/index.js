@@ -51,6 +51,7 @@ function ArrowPointing() {
       css={css`
         @media (max-width: 767.98px) {
           background: #b2675e !important;
+          border-radius: 0;
         }
       `}
       className="bg-light mb-0"

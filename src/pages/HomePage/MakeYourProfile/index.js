@@ -10,6 +10,7 @@ function ProfileBanner() {
       css={css`
         @media (max-width: 768.98px) {
           background: #007bff;
+          border-radius: 0;
         }
       `}
       className=" d-flex align-items-center"
