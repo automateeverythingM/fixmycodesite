@@ -13,6 +13,24 @@ const hoverNavLink = css`
     color: #fff !important;
   }
 `;
+
+const mediaBrand = css`
+  @media (max-width: 767.98px) {
+    order: 1;
+  }
+`;
+
+const mediaNav = css`
+  @media (max-width: 767.98px) {
+    order: 3;
+    text-align: center;
+  }
+`;
+const mediaNavDrop = css`
+  @media (max-width: 767.98px) {
+    order: 2;
+  }
+`;
 const NavBar = ({ isUserAuth = true }) => {
   const renderUserOrLogin = isUserAuth ? <UserOption /> : <LoginRegister />;
 
@@ -26,12 +44,17 @@ const NavBar = ({ isUserAuth = true }) => {
       `}
     >
       <Container>
-        <Navbar.Brand className="font-weight-bold text-white" as={Link} to="/">
+        <Navbar.Brand
+          css={mediaBrand}
+          className="font-weight-bold text-white"
+          as={Link}
+          to="/"
+        >
           <SVG svg={Logo} size="2rem" /> FixMyCode
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="navbar-basic">
-          <Nav className="ml-3">
+        <Navbar.Toggle css={mediaNavDrop} aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse css={mediaNav} id="navbar-basic">
+          <Nav aria-controls="" className="ml-3">
             <NavLink as={Link} to="/" css={hoverNavLink}>
               HOME
             </NavLink>
@@ -40,6 +63,7 @@ const NavBar = ({ isUserAuth = true }) => {
             </NavLink>
           </Nav>
         </Navbar.Collapse>
+
         {renderUserOrLogin}
       </Container>
     </Navbar>

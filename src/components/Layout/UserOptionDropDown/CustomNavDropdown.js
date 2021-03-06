@@ -13,7 +13,12 @@ export const CustomNavDropdown = ({ children, title, ...rest }) => {
         & > div {
           top: 130%;
           right: 30%;
+          left: auto;
           background: ${colors.dark};
+          @media (max-width: 767.98px) {
+            left: 0;
+            right: auto;
+          }
         }
         & > a {
           padding: 0 0.6rem;
@@ -23,8 +28,7 @@ export const CustomNavDropdown = ({ children, title, ...rest }) => {
         }
       `}
       className="bg-dark px-1"
-      alignRight
-      menuAlign="right"
+      menuAlign={{ lg: "right", md: "left" }}
       {...rest}
     >
       {children}
