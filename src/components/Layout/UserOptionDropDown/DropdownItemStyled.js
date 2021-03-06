@@ -10,7 +10,7 @@ const DropdownItemStyled = ({ children, size, ...rest }) => {
         display: flex;
         align-items: center;
         max-width: 350px;
-        width: 350px;
+        width: 300px;
         white-space: normal;
         padding: 0.5rem 0.5rem;
         font-size: ${size || "0.7rem"};

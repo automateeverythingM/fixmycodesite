@@ -17,15 +17,21 @@ function App() {
             }
           }
 
+          *,
+          ::after,
+          ::before {
+            box-sizing: border-box;
+          }
+
           html {
+            @media (max-width: 991.98px) {
+              font-size: 14px;
+            }
             @media (max-width: 767.98px) {
               font-size: 12px;
             }
             @media (max-width: 575.98px) {
               font-size: 10px;
-            }
-            h1 {
-              font-size: 3rem;
             }
           }
         `}

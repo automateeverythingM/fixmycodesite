@@ -21,6 +21,18 @@ function LandingBanner() {
               @media (max-width: 765px) {
                 order: 1;
               }
+
+              @media (max-width: 991.98px) and (min-width: 767.98px) {
+                h1 {
+                  font-size: 1.8rem;
+                }
+                h3 {
+                  font-size: 1.3rem;
+                }
+                p {
+                  font-size: 0.8rem;
+                }
+              }
             `}
           >
             <h1>
