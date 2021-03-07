@@ -31,7 +31,7 @@ const mediaNavDrop = css`
     order: 2;
   }
 `;
-const NavBar = ({ isUserAuth = true }) => {
+const NavBar = ({ isUserAuth = false }) => {
   const renderUserOrLogin = isUserAuth ? <UserOption /> : <LoginRegister />;
 
   return (

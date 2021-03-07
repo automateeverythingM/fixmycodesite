@@ -3,8 +3,15 @@ import React from "react";
 import Layout from "./components/Layout";
 import { Router } from "@reach/router";
 import HomePage from "./pages/HomePage";
+import { auth } from "./firebase";
+import Login from "./pages/LoginRegister/Login";
+import Register from "./pages/LoginRegister/Register";
 
 function App() {
+  auth.onAuthStateChanged((user) => {
+    console.log(user);
+  });
+
   return (
     <div>
       <Global
@@ -39,6 +46,8 @@ function App() {
       <Router>
         <Layout path="/">
           <HomePage path="/" />
+          <Login path="/login" />
+          <Register path="/register" />
         </Layout>
       </Router>
     </div>

@@ -25,6 +25,7 @@ const transparentizeOrDarken = (props, numTransparentize, numDarken) => {
 
 export const BaseButton = styled.button`
   display: inline-block;
+  width: ${(props) => (props.block ? "100%" : "auto")};
   overflow: hidden;
   cursor: pointer;
   min-height: 1em;
@@ -59,33 +60,19 @@ export const BaseButton = styled.button`
   }
 
   &:hover {
-    background: ${(props) => lightenOrDarken(props, 0.05, 0.05)};
+    background: ${(props) => lightenOrDarken(props, 0.015, 0.015)};
     color: ${(props) => props.color || baseColor};
   }
   &:focus {
-    background: ${(props) => lightenOrDarken(props, 0.05, 0.05)};
+    background: ${(props) => lightenOrDarken(props, 0.02, 0.02)};
     outline: none;
     color: ${(props) => props.color || baseColor};
     box-shadow: 0 0 0 1px
       ${(props) => darken(0.01, props.background || baseBackgroundColor)};
   }
   &:active {
-    background: ${(props) => lightenOrDarken(props, 0.09, 0.09)};
+    background: ${(props) => lightenOrDarken(props, 0.03, 0.03)};
   }
-
-  ${(props) =>
-    props.loading &&
-    css`
-      color: #ffffff00;
-      position: relative;
-
-      &:hover {
-        color: #ffffff00;
-      }
-      &:focus {
-        color: #ffffff00;
-      }
-    `}
 
   ${(props) =>
     props.circle &&
