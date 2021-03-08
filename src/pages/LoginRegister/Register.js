@@ -1,10 +1,7 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { css, jsx } from "@emotion/react";
 import styled from "@emotion/styled";
 import { Link } from "@reach/router";
 import { useMemo } from "react";
-import { Button, Container, Form } from "react-bootstrap";
+import { Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import GroupOfButtons from "./GroupOfButtons";
 import PreInput from "./PreInput";
@@ -24,7 +21,7 @@ export const Wrapper = styled.div`
   padding: 2rem;
   border-radius: 1rem;
   color: white;
-  background: #323333;
+  background: #333;
   width: 500px;
 `;
 

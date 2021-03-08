@@ -4,7 +4,7 @@ import { css, jsx } from "@emotion/react";
 import styled from "@emotion/styled";
 import { Button, Col, Container, Jumbotron, Row } from "react-bootstrap";
 import CodeHighLighter from "../../../components/codeHighlighter";
-import money from "../../../img/money.svg";
+import money from "../../../assets/img/money.svg";
 import FixedSizeImage from "../../../components/UI/Avatar/FixedSizeImage";
 import { useState } from "react";
 import { motion } from "framer-motion";

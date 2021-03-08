@@ -2,7 +2,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "@reach/router";
 import NavLink from "./NavLink";
 import { SVG } from "../../../features/SVG";
-import { ReactComponent as Logo } from "../../../img/logo.svg";
+import { ReactComponent as Logo } from "../../../assets/img/logo.svg";
 import { UserOption } from "../UserOptionDropDown";
 /** @jsxRuntime classic */
 /** @jsx jsx */

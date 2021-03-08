@@ -3,7 +3,7 @@
 import { css, jsx } from "@emotion/react";
 import { Col, Container, Jumbotron, Row } from "react-bootstrap";
 import FixedSizeImage from "../../../components/UI/Avatar/FixedSizeImage";
-import codeIllustration from "../../../img/codeilustwithborder.svg";
+import codeIllustration from "../../../assets/img/codeilustwithborder.svg";
 
 function LandingBanner() {
   return (

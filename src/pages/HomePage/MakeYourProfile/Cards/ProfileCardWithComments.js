@@ -3,9 +3,9 @@
 import { css, jsx } from "@emotion/react";
 import { Col, Row } from "react-bootstrap";
 import FixedSizeImage from "../../../../components/UI/Avatar/FixedSizeImage";
-import user from "../../../../img/man.svg";
-import userCommented from "../../../../img/manglasses.svg";
-import rating from "../../../../img/5star.svg";
+import user from "../../../../assets/img/man.svg";
+import userCommented from "../../../../assets/img/manglasses.svg";
+import rating from "../../../../assets/img/5star.svg";
 import { Fragment } from "react";
 
 function ProfileCardWithComments() {

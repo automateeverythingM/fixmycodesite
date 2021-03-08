@@ -1,7 +1,3 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { css, jsx } from "@emotion/react";
-import styled from "@emotion/styled";
 import ButtonWithIcon from "./Button";
 import { AiFillGithub, AiOutlineGoogle } from "react-icons/ai";
 import { VscGlobe } from "react-icons/vsc";
@@ -26,7 +22,7 @@ function GroupOfButtons({ isSignUp }) {
   );
 
   return (
-    <div>
+    <div className="mt-1">
       <ButtonWithIcon
         className="mt-2 py-0 border"
         background="teal"

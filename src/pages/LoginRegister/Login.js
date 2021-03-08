@@ -1,14 +1,14 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react";
-import styled from "@emotion/styled";
-import { Button, Container, Form } from "react-bootstrap";
+import { Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { auth } from "../../firebase";
 import PreInput from "./PreInput";
 import { Link } from "@reach/router";
 import { FormContainer, Wrapper } from "./Register";
 import GroupOfButtons from "./GroupOfButtons";
+import { useLogin } from "./HOC/Login";
 
 const validation = {
   email: { required: "Please enter a valid email" },
@@ -16,18 +16,14 @@ const validation = {
 };
 
 function Login() {
-  const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => {
-    const { email, password } = data;
-    auth.signInWithEmailAndPassword(email, password);
-  };
+  const { register, onSubmit, errors } = useLogin();
 
   return (
     <Container>
       <FormContainer>
         <h1>Login</h1>
         <Wrapper>
-          <Form className="w-100" onSubmit={handleSubmit(onSubmit)}>
+          <Form className="w-100" onSubmit={onSubmit}>
             <PreInput
               label="Email"
               name="email"
@@ -44,8 +40,17 @@ function Login() {
               errorMessage={errors?.password?.message}
               ref={register(validation.password)}
               isInvalid={errors?.password?.message}
+              mb="mb-0"
             />
-
+            <Link
+              css={css`
+                font-size: 0.8em;
+              `}
+              className="text-warning font-weight-bold"
+              to="/resetpassword"
+            >
+              Forgot your password?
+            </Link>
             <GroupOfButtons />
             <div className="text-center mt-4">
               Don`t have account?{" "}

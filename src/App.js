@@ -41,6 +41,10 @@ function App() {
               font-size: 10px;
             }
           }
+
+          body {
+            background: whitesmoke;
+          }
         `}
       />
       <Router>

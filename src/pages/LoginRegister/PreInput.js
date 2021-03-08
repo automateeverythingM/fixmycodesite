@@ -1,13 +1,9 @@
 import React, { forwardRef } from "react";
 import { Form } from "react-bootstrap";
 
-function PreInput({ label, errorMessage, ...rest }, ref) {
-  console.log(
-    "🚀 ~ file: PreInput.js ~ line 5 ~ PreInput ~ errorMessage",
-    errorMessage
-  );
+function PreInput({ label, errorMessage, mb, ...rest }, ref) {
   return (
-    <Form.Group>
+    <Form.Group className={mb}>
       <Form.Label>{label}</Form.Label>
       <Form.Control ref={ref} {...rest} />
       <Form.Control.Feedback type="invalid">
