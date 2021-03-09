@@ -54,7 +54,6 @@ export const UserDropdown = () => {
         size="1rem"
         onClick={async () => {
           auth.signOut();
-          // navigate("/");
         }}
       >
         <span className="mx-3">

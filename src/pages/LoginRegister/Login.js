@@ -66,7 +66,7 @@ function Login() {
             <div className="text-center mt-4">
               Don`t have account?{" "}
               <b>
-                <Link className="text-warning" to="/loading">
+                <Link className="text-warning" to="/register">
                   Register
                 </Link>
               </b>

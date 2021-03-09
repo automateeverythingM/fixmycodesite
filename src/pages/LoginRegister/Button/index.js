@@ -18,14 +18,18 @@ function ButtonWithIcon({ children, loading, ...rest }) {
           </div>
           <HideShow
             loading={loading}
-            className="d-flex align-items-center w-100"
+            className="d-flex align-items-center justify-content-center w-100"
           >
             {children}
           </HideShow>
         </div>
       );
     } else {
-      return <div className="d-flex align-items-center w-100">{children}</div>;
+      return (
+        <div className="d-flex align-items-center justify-content-center w-100">
+          {children}
+        </div>
+      );
     }
   }, [loading, children]);
 

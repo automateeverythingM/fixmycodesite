@@ -2,13 +2,13 @@ import React from "react";
 import { Nav } from "react-bootstrap";
 import { Link } from "@reach/router";
 
-function NavLink({ children, ...rest }) {
+function NavLink({ children, activeStyle = { color: "white" }, ...rest }) {
   return (
     <Nav.Link
       getProps={({ isCurrent }) => {
         return (
           isCurrent && {
-            style: { color: "white" },
+            style: activeStyle,
           }
         );
       }}

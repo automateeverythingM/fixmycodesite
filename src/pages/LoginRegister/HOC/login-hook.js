@@ -18,7 +18,7 @@ export const useLogin = () => {
     setError(error);
   };
 
-  const Submit = async (data) => {
+  const submit = async (data) => {
     const { email, password } = data;
     setStatus("internal", false);
     await sleep(3000);
@@ -33,7 +33,7 @@ export const useLogin = () => {
       });
   };
 
-  const Register = (data) => {
+  const registerUser = (data) => {
     const { email, password, username } = data;
     setStatus("internal", false);
 
@@ -55,8 +55,16 @@ export const useLogin = () => {
       .catch((error) => setStatus(false, error));
   };
 
-  const LoginUser = handleSubmit(Submit);
-  const RegisterUser = handleSubmit(Register);
+  const passwordReset = async (data) => {
+    setStatus("internal", false);
+    const { email } = data;
+    await auth.sendPasswordResetEmail(email);
+    navigate("/login");
+  };
+
+  const LoginUser = handleSubmit(submit);
+  const RegisterUser = handleSubmit(registerUser);
+  const PasswordReset = handleSubmit(passwordReset);
   const signInWithGithub = () => {
     setStatus("github", false);
     auth
@@ -82,6 +90,7 @@ export const useLogin = () => {
     register,
     LoginUser,
     RegisterUser,
+    PasswordReset,
     errors,
     signInWithGithub,
     signInWithGoogle,

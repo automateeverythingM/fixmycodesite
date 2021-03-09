@@ -6,8 +6,11 @@ import HomePage from "./pages/HomePage";
 import { auth } from "./firebase";
 import Login from "./pages/LoginRegister/Login";
 import Register from "./pages/LoginRegister/Register";
+import RetrieveForgottenPassword from "./pages/LoginRegister/RetrieveForgottenPassword";
 import { connect } from "react-redux";
 import { setUser, setUserToNull } from "./app/reducers/userSlice";
+import Profile from "./pages/Profile";
+import Projects from "./pages/Profile/Projects";
 function App({ dispatch }) {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -61,6 +64,8 @@ function App({ dispatch }) {
           <HomePage path="/" />
           <Login path="/login" />
           <Register path="/register" />
+          <Profile path="/profile/*" />
+          <RetrieveForgottenPassword path="/resetpassword" />
         </Layout>
       </Router>
     </div>
