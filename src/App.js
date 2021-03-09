@@ -1,5 +1,5 @@
 import { css, Global } from "@emotion/react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Layout from "./components/Layout";
 import { Router } from "@reach/router";
 import HomePage from "./pages/HomePage";
@@ -9,24 +9,17 @@ import Register from "./pages/LoginRegister/Register";
 import { connect } from "react-redux";
 import { setUser, setUserToNull } from "./app/reducers/userSlice";
 function App({ dispatch }) {
-  const userListener = () => {};
-
   useEffect(() => {
-    auth.onAuthStateChanged(
-      (user) => {
-        if (user) {
-          dispatch(setUser(user));
-        } else {
-          dispatch(setUserToNull());
-        }
-      },
-      (error) => {
-        console.log(error);
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        dispatch(setUser(user));
+      } else {
+        dispatch(setUserToNull());
       }
-    );
-  }, []);
+    });
 
-  useEffect(() => {});
+    return () => unsubscribe();
+  }, []);
 
   return (
     <div>
