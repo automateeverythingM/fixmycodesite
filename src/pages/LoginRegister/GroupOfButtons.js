@@ -4,18 +4,18 @@ import { VscGlobe } from "react-icons/vsc";
 import Content from "./Button/content";
 import { useMemo } from "react";
 
-function GroupOfButtons({ isSignUp }) {
-  const { google, github, internal } = useMemo(
+function GroupOfButtons({ isSignUp, google, github, loading }) {
+  const { googleText, githubText, internal } = useMemo(
     () =>
       isSignUp
         ? {
-            google: "Sign up with Google",
-            github: "Sign up with Github",
+            googleText: "Sign up with Google",
+            githubText: "Sign up with Github",
             internal: "Register",
           }
         : {
-            google: "Login with Google",
-            github: "Login with Github",
+            googleText: "Login with Google",
+            githubText: "Login with Github",
             internal: "Login",
           },
     [isSignUp]
@@ -28,6 +28,10 @@ function GroupOfButtons({ isSignUp }) {
         background="teal"
         color="whitesmoke"
         block
+        type="submit"
+        grayOut
+        disabled={!!loading}
+        loading={loading === "internal"}
       >
         <Content icon={<VscGlobe size="2rem" />} text={internal} />
       </ButtonWithIcon>
@@ -38,8 +42,11 @@ function GroupOfButtons({ isSignUp }) {
         block
         variant="danger"
         grayOut
+        onClick={github}
+        disabled={!!loading}
+        loading={loading === "github"}
       >
-        <Content icon={<AiFillGithub size="2rem" />} text={github} />
+        <Content icon={<AiFillGithub size="2rem" />} text={githubText} />
       </ButtonWithIcon>
       <ButtonWithIcon
         className="mt-2 py-0 border"
@@ -48,8 +55,11 @@ function GroupOfButtons({ isSignUp }) {
         block
         variant="dark"
         grayOut
+        onClick={google}
+        disabled={!!loading}
+        loading={loading === "google"}
       >
-        <Content icon={<AiOutlineGoogle size="2rem" />} text={google} />
+        <Content icon={<AiOutlineGoogle size="2rem" />} text={googleText} />
       </ButtonWithIcon>
     </div>
   );

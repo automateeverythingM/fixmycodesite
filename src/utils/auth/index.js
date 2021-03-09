@@ -1,5 +1,2 @@
-import { auth } from "../../firebase";
-
-export default function getUserWithProvider(provider) {
-  auth.signInWithPopup(provider);
-}
+export const sleep = (time) =>
+  new Promise((resolve) => setTimeout(resolve, time));

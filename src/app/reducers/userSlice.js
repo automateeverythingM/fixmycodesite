@@ -7,13 +7,18 @@ export const userSlice = createSlice({
   },
   reducers: {
     setUser: (state, action) => {
-      state.user = action.payload;
+      const { displayName, photoURL, email, uid } = action.payload;
+      state.user = { displayName, photoURL, email, uid };
+    },
+    setUserToNull: (state, action) => {
+      state.user = null;
     },
   },
 });
 
-export const { setUser } = userSlice.actions;
+export const { setUser, setUserToNull } = userSlice.actions;
 
-export const selectUser = (state) => state.userSlice.user;
+export const userSelector = (state) => !!state.userSlice.user;
+export const photoUrlSelector = (state) => state.userSlice.user?.photoURL;
 
 export default userSlice.reducer;

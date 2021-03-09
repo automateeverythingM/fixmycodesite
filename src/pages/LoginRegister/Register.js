@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 import { Link } from "@reach/router";
 import { useMemo } from "react";
 import { Container, Form } from "react-bootstrap";
-import { useForm } from "react-hook-form";
 import GroupOfButtons from "./GroupOfButtons";
+import { useLogin } from "./HOC/login-hook";
 import PreInput from "./PreInput";
 
 export const FormContainer = styled.div`
@@ -26,7 +26,17 @@ export const Wrapper = styled.div`
 `;
 
 function Register() {
-  const { register, handleSubmit, errors, getValues } = useForm();
+  const {
+    register,
+    RegisterUser,
+    errors,
+    error,
+    loading,
+    getValues,
+    signInWithGithub,
+    signInWithGoogle,
+  } = useLogin();
+
   const validation = useMemo(
     () => ({
       username: {
@@ -66,16 +76,12 @@ function Register() {
     []
   );
 
-  const onSubmit = (data) => {
-    console.log("🚀 ~ file: Register.js ~ line 11 ~ onSubmit ~ data", data);
-  };
-
   return (
     <Container>
       <FormContainer>
         <h1 className="mb-3">Register</h1>
         <Wrapper>
-          <Form className="w-100" onSubmit={handleSubmit(onSubmit)}>
+          <Form className="w-100" onSubmit={RegisterUser}>
             <PreInput
               label="Username"
               name="username"
@@ -112,7 +118,12 @@ function Register() {
               errorMessage={errors?.confirmPassword?.message}
               isInvalid={errors?.confirmPassword?.message}
             />
-            <GroupOfButtons isSignUp />
+            <GroupOfButtons
+              isSignUp
+              google={signInWithGoogle}
+              github={signInWithGithub}
+              loading={loading}
+            />
             <div className="text-center mt-3">
               Already registered?{" "}
               <b>

@@ -1,16 +1,32 @@
 import { css, Global } from "@emotion/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "./components/Layout";
 import { Router } from "@reach/router";
 import HomePage from "./pages/HomePage";
 import { auth } from "./firebase";
 import Login from "./pages/LoginRegister/Login";
 import Register from "./pages/LoginRegister/Register";
+import { connect } from "react-redux";
+import { setUser, setUserToNull } from "./app/reducers/userSlice";
+function App({ dispatch }) {
+  const userListener = () => {};
 
-function App() {
-  auth.onAuthStateChanged((user) => {
-    console.log(user);
-  });
+  useEffect(() => {
+    auth.onAuthStateChanged(
+      (user) => {
+        if (user) {
+          dispatch(setUser(user));
+        } else {
+          dispatch(setUserToNull());
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }, []);
+
+  useEffect(() => {});
 
   return (
     <div>
@@ -58,4 +74,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect()(App);

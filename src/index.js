@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ThemeProvider } from "@emotion/react";
 import { theme } from "./components/emotionTheme/theme";
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

@@ -5,14 +5,21 @@ import { CustomNavDropdown } from "../CustomNavDropdown";
 import FixedSizeImage from "../../../UI/Avatar/FixedSizeImage";
 import UserMenuItem from "./UserMenuItem";
 import mockOptions from "../../../../mocks/usermenuoptions";
+import DropdownItemStyled from "../DropdownItemStyled";
+import { Dropdown } from "react-bootstrap";
+import { FaReply } from "react-icons/fa";
+import { auth } from "../../../../firebase";
+import { photoUrlSelector } from "../../../../app/reducers/userSlice";
+import { useSelector } from "react-redux";
 
 export const UserDropdown = () => {
+  const photoURL = useSelector(photoUrlSelector);
   return (
     <CustomNavDropdown
       id="user-menu"
       title={
         <FixedSizeImage
-          src="https://picsum.photos/40"
+          src={photoURL}
           size="1.5rem"
           alt="avatar"
           className=""
@@ -38,6 +45,23 @@ export const UserDropdown = () => {
           to={item.to}
         />
       ))}
+      <Dropdown.Divider />
+      <DropdownItemStyled
+        css={css`
+          width: auto;
+        `}
+        className="text-white"
+        size="1rem"
+        onClick={async () => {
+          auth.signOut();
+          // navigate("/");
+        }}
+      >
+        <span className="mx-3">
+          <FaReply />
+        </span>{" "}
+        Logout
+      </DropdownItemStyled>
     </CustomNavDropdown>
   );
 };

@@ -7,7 +7,9 @@ import { UserOption } from "../UserOptionDropDown";
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react";
+import { userSelector } from "../../../app/reducers/userSlice";
 import LoginRegister from "../UserOptionDropDown/LoginRegister/LoginRegister";
+import { useSelector } from "react-redux";
 const hoverNavLink = css`
   &:hover {
     color: #fff !important;
@@ -31,9 +33,9 @@ const mediaNavDrop = css`
     order: 2;
   }
 `;
-const NavBar = ({ isUserAuth = false }) => {
+const NavBar = () => {
+  const isUserAuth = useSelector(userSelector);
   const renderUserOrLogin = isUserAuth ? <UserOption /> : <LoginRegister />;
-
   return (
     <Navbar
       bg="dark"

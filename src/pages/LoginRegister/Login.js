@@ -2,13 +2,11 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react";
 import { Container, Form } from "react-bootstrap";
-import { useForm } from "react-hook-form";
-import { auth } from "../../firebase";
 import PreInput from "./PreInput";
 import { Link } from "@reach/router";
 import { FormContainer, Wrapper } from "./Register";
 import GroupOfButtons from "./GroupOfButtons";
-import { useLogin } from "./HOC/Login";
+import { useLogin } from "./HOC/login-hook";
 
 const validation = {
   email: { required: "Please enter a valid email" },
@@ -16,14 +14,22 @@ const validation = {
 };
 
 function Login() {
-  const { register, onSubmit, errors } = useLogin();
+  const {
+    register,
+    LoginUser,
+    errors,
+    error,
+    loading,
+    signInWithGithub,
+    signInWithGoogle,
+  } = useLogin();
 
   return (
     <Container>
       <FormContainer>
         <h1>Login</h1>
         <Wrapper>
-          <Form className="w-100" onSubmit={onSubmit}>
+          <Form className="w-100" onSubmit={LoginUser}>
             <PreInput
               label="Email"
               name="email"
@@ -51,11 +57,16 @@ function Login() {
             >
               Forgot your password?
             </Link>
-            <GroupOfButtons />
+            <GroupOfButtons
+              loading={loading}
+              error={error}
+              github={signInWithGithub}
+              google={signInWithGoogle}
+            />
             <div className="text-center mt-4">
               Don`t have account?{" "}
               <b>
-                <Link className="text-warning" to="/signup">
+                <Link className="text-warning" to="/loading">
                   Register
                 </Link>
               </b>

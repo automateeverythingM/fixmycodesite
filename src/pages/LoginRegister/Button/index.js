@@ -5,7 +5,7 @@ import { BaseButton } from "../../../components/UI/Button/MPButton";
 
 const HideShow = styled.div`
   /* visibility: ${(props) => (props.loading ? "hidden" : "visible")}; */
-  opacity: 0.1;
+  opacity: 0.5;
 `;
 
 function ButtonWithIcon({ children, loading, ...rest }) {
@@ -14,12 +14,7 @@ function ButtonWithIcon({ children, loading, ...rest }) {
       return (
         <div className="position-relative d-flex align-items-center w-100">
           <div className="position-absolute w-100">
-            <Spinner
-              animation="border"
-              role="status"
-              variant="light"
-              size="sm"
-            />
+            <Spinner animation="border" role="status" variant="light" />
           </div>
           <HideShow
             loading={loading}
