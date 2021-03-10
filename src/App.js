@@ -11,6 +11,7 @@ import { connect } from "react-redux";
 import { setUser, setUserToNull } from "./app/reducers/userSlice";
 import Profile from "./pages/Profile";
 import Projects from "./pages/Profile/Projects";
+import AuthRoute from "./utils/authRoute/authRoutes";
 function App({ dispatch }) {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -62,9 +63,14 @@ function App({ dispatch }) {
       <Router>
         <Layout path="/">
           <HomePage path="/" />
-          <Login path="/login" />
           <Register path="/register" />
-          <Profile path="/profile/*" />
+          <Login path="/login" />
+          <AuthRoute
+            path="/profile/*"
+            fallbackRoute="/login"
+            component={Profile}
+          />
+          {/* <Profile path="/profile/*" /> */}
           <RetrieveForgottenPassword path="/resetpassword" />
         </Layout>
       </Router>

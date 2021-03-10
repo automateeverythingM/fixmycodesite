@@ -1,10 +1,14 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react";
-import { Nav, Row, Tab } from "react-bootstrap";
+import { Nav } from "react-bootstrap";
 import { Link } from "@reach/router";
 import NavLink from "../../../components/Layout/NavBar/NavLink";
-
+const active = {
+  color: "white",
+  borderBottom: "1px solid white",
+  background: "#00000044",
+};
 function ProfileNav() {
   return (
     <Nav
@@ -16,15 +20,15 @@ function ProfileNav() {
         }
       `}
     >
-      <NavLink as={Link} to="/profile">
+      <NavLink activeStyle={active} as={Link} to="/profile">
         Profile
       </NavLink>
 
-      <NavLink as={Link} to="/profile/projects">
+      <NavLink activeStyle={active} as={Link} to="/profile/projects">
         Projects
       </NavLink>
 
-      <NavLink as={Link} to="/profile/status">
+      <NavLink activeStyle={active} as={Link} to="/profile/status">
         Status
       </NavLink>
     </Nav>

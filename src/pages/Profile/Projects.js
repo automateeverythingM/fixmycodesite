@@ -6,7 +6,7 @@ import styled from "@emotion/styled";
 function Projects() {
   return (
     <div>
-      <h1>HELLO</h1>
+      <h1>Projects</h1>
     </div>
   );
 }

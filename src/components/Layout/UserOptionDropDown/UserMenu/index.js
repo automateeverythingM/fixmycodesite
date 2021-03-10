@@ -11,6 +11,7 @@ import { FaReply } from "react-icons/fa";
 import { auth } from "../../../../firebase";
 import { photoUrlSelector } from "../../../../app/reducers/userSlice";
 import { useSelector } from "react-redux";
+import { navigate } from "@reach/router";
 
 export const UserDropdown = () => {
   const photoURL = useSelector(photoUrlSelector);
@@ -53,7 +54,8 @@ export const UserDropdown = () => {
         className="text-white"
         size="1rem"
         onClick={async () => {
-          auth.signOut();
+          await auth.signOut();
+          navigate("/");
         }}
       >
         <span className="mx-3">

@@ -19,6 +19,7 @@ export const userSlice = createSlice({
 export const { setUser, setUserToNull } = userSlice.actions;
 
 export const userSelector = (state) => state.userSlice.user;
+export const isUserSelector = (state) => !!state.userSlice.user;
 export const photoUrlSelector = (state) => state.userSlice.user?.photoURL;
 
 export default userSlice.reducer;

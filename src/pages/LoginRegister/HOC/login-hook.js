@@ -2,7 +2,7 @@ import { navigate } from "@reach/router";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { auth, githubProvider, googleProvider } from "../../../firebase";
-import { sleep } from "../../../utils/auth";
+import { sleep } from "../../../utils/authRoute";
 import md5 from "md5";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../../app/reducers/userSlice";
