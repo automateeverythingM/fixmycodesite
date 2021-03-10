@@ -10,8 +10,8 @@ import RetrieveForgottenPassword from "./pages/LoginRegister/RetrieveForgottenPa
 import { connect } from "react-redux";
 import { setUser, setUserToNull } from "./app/reducers/userSlice";
 import Profile from "./pages/Profile";
-import Projects from "./pages/Profile/Projects";
 import AuthRoute from "./utils/authRoute/authRoutes";
+import RestrictedRoute from "./utils/authRoute/restrictedRoute";
 function App({ dispatch }) {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -63,15 +63,18 @@ function App({ dispatch }) {
       <Router>
         <Layout path="/">
           <HomePage path="/" />
-          <Register path="/register" />
-          <Login path="/login" />
+          <RestrictedRoute path="/register" component={Register} />
+          <RestrictedRoute path="/login" component={Login} />
           <AuthRoute
             path="/profile/*"
             fallbackRoute="/login"
             component={Profile}
           />
           {/* <Profile path="/profile/*" /> */}
-          <RetrieveForgottenPassword path="/resetpassword" />
+          <RestrictedRoute
+            path="/resetpassword"
+            component={RetrieveForgottenPassword}
+          />
         </Layout>
       </Router>
     </div>

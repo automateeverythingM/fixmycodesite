@@ -4,10 +4,8 @@ import { isUserSelector } from "../../app/reducers/userSlice";
 import { Redirect } from "@reach/router";
 
 function AuthRoute({
-  type,
   component: Component,
   fallbackRoute = "/login",
-  restricted,
   ...rest
 }) {
   const isUserAuth = useSelector(isUserSelector);
