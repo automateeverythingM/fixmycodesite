@@ -3,14 +3,28 @@
 import { css, jsx } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useSelector } from "react-redux";
-import { photoUrlSelector } from "../../../app/reducers/userSlice";
+import {
+  photoUrlSelector,
+  userSelector,
+} from "../../../app/reducers/userSlice";
 import FixedSizeImage from "../../../components/UI/Avatar/FixedSizeImage";
 
 function ProfileCard() {
-  const photoUrl = useSelector(photoUrlSelector);
+  const { photoURL, displayName } = useSelector(userSelector);
+
   return (
-    <div css={css``}>
-      <FixedSizeImage rounded size="250px" src={photoUrl} />
+    <div className="pt-5">
+      <FixedSizeImage rounded size="250px" src={photoURL} />
+      <div className="mt-3">
+        <h2>{displayName}</h2>
+        <h2
+          css={css`
+            font-weight: 100;
+          `}
+        >
+          automateeverythingM
+        </h2>
+      </div>
     </div>
   );
 }

@@ -37,12 +37,28 @@ function Profile() {
         </Container>
       </BackgroundImg>
 
-      <Container>
-        <Row>
+      <Container
+        css={css`
+          height: 100%;
+          overflow: auto;
+        `}
+      >
+        <Row
+          css={css`
+            height: 100%;
+            overflow: auto;
+          `}
+        >
           <Col md={4} className="d-flex justify-content-center">
             <ProfileCard />
           </Col>
-          <Col md={8}>
+          <Col
+            md={8}
+            css={css`
+              height: 100%;
+              overflow: auto;
+            `}
+          >
             <Router>
               <Projects path="/projects" />
               <Status path="/status" />
