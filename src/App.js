@@ -56,7 +56,7 @@ function App({ dispatch }) {
           }
 
           body {
-            background: whitesmoke;
+            background: #e6e4e4;
           }
         `}
       />

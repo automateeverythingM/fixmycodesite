@@ -7,16 +7,7 @@ import ReactDOMServer from "react-dom/server";
 import ReactMarkdown from "react-markdown";
 import { useState } from "react";
 import "easymde/dist/easymde.min.css";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import dark from "react-syntax-highlighter/dist/esm/styles/prism/material-dark";
-
-const renderers = {
-  code: ({ language, value }) => {
-    return (
-      <SyntaxHighlighter style={dark} language={language} children={value} />
-    );
-  },
-};
+import MarkdownView from "./MarkdownView";
 
 var editor = {
   autofocus: true,
@@ -69,9 +60,7 @@ var editor = {
   //   previewClass: ["my-custom-styling", "more-custom-styling"],
 
   previewRender(text) {
-    return ReactDOMServer.renderToString(
-      <ReactMarkdown allowDangerousHtml source={text} renderers={renderers} />
-    );
+    return ReactDOMServer.renderToString(<MarkdownView text={text} />);
   },
   //   promptURLs: true,
   //   promptTexts: {

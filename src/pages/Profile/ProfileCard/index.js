@@ -14,16 +14,26 @@ function ProfileCard() {
 
   return (
     <div className="pt-5">
-      <FixedSizeImage rounded size="250px" src={photoURL} />
+      <FixedSizeImage rounded size="200px" src={photoURL} />
       <div className="mt-3">
         <h2>{displayName}</h2>
-        <h2
+        <h3
           css={css`
             font-weight: 100;
           `}
         >
           automateeverythingM
-        </h2>
+        </h3>
+
+        <div className="mt-5">
+          <h5>Bio</h5>
+          <p className="text-left">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. aspernatur
+            nihil corrupti cupiditate fugiat provident, officia illo
+            perspiciatis. Corrupti, illo maiores necessitatibus natus ducimus
+            omnis nihil nemo et voluptatibus.
+          </p>
+        </div>
       </div>
     </div>
   );

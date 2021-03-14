@@ -1,14 +1,13 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { css, jsx } from "@emotion/react";
 import { Router } from "@reach/router";
 import { Col, Container, Row } from "react-bootstrap";
 import ProfileNav from "./ProfileNav";
-import Projects from "./Projects";
+import Projects from "./Project";
 import ProfileCard from "./ProfileCard";
 import keyboard from "../../assets/img/profile/keyboard1.svg";
 import Status from "./Status";
 import styled from "@emotion/styled";
+import Landing from "./Landing";
+import SingleProjectDisplay from "./Project/SingleProjectDisplay";
 
 const BackgroundImg = styled.div`
   display: flex;
@@ -37,30 +36,16 @@ function Profile() {
         </Container>
       </BackgroundImg>
 
-      <Container
-        css={css`
-          height: 100%;
-          overflow: auto;
-        `}
-      >
-        <Row
-          css={css`
-            height: 100%;
-            overflow: auto;
-          `}
-        >
+      <Container>
+        <Row>
           <Col md={4} className="d-flex justify-content-center">
             <ProfileCard />
           </Col>
-          <Col
-            md={8}
-            css={css`
-              height: 100%;
-              overflow: auto;
-            `}
-          >
+          <Col className="pt-5" md={8}>
             <Router>
+              <Landing path="/" />
               <Projects path="/projects" />
+              <SingleProjectDisplay path="/projects/:id" />
               <Status path="/status" />
             </Router>
           </Col>
