@@ -44,6 +44,7 @@ function App({ dispatch }) {
           }
 
           html {
+            scroll-behavior: smooth;
             @media (max-width: 991.98px) {
               font-size: 14px;
             }

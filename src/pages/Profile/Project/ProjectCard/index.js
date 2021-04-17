@@ -10,10 +10,16 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   background: #333;
-  color: whitesmoke;
-  padding: 0.5em 0.5em;
+  color: #f5f5f599;
+  padding: 0.5em 1.5em;
   border-radius: 0.5rem;
   margin: 0.5rem 0;
+
+  &:hover {
+    color: white;
+    text-decoration: none;
+    /* background: #444; */
+  }
 `;
 
 function DisplayProject({ projId, name, tags = [] }) {

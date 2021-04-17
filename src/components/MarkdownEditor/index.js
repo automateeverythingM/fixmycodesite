@@ -13,7 +13,7 @@ var editor = {
   autofocus: true,
   // autosave: {
   //   enabled: true,
-  //   uniqueId: "MyUniqueID",
+  //   uniqueId: "savati",
   //   delay: 1000,
   //   submit_delay: 5000,
   //   timeFormat: {
@@ -48,7 +48,6 @@ var editor = {
   //   },
   //   lineWrapping: false,
   minHeight: "500px",
-  maxHeight: "100%",
   //   parsingConfig: {
   //     allowAtxHeaderWithoutSpace: true,
   //     strikethrough: false,

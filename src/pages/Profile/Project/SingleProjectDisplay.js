@@ -1,9 +1,4 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { css, jsx } from "@emotion/react";
-import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
-import MarkdownEditor from "../../../components/MarkdownEditor";
 import MarkdownView from "../../../components/MarkdownEditor/MarkdownView";
 function SingleProjectDisplay({ id }) {
   const [state, setState] = useState();
@@ -17,10 +12,6 @@ function SingleProjectDisplay({ id }) {
         if (response.ok) {
           return response.json();
         }
-        console.log(
-          "🚀 ~ file: SingleProjectDisplay.js ~ line 13 ~ .then ~ response",
-          response
-        );
       })
       .then((json) => {
         setState(json);
